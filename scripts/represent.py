@@ -8,7 +8,8 @@ result = DeepFace.represent(
     anti_spoofing = "{{anti_spoofing}}",
     detector_backend = "{{detector_backend}}",
     align = {{align}},
-    normalization = "{{normalization}}"
+    normalization = "{{normalization}}",
+    max_faces = {{max_faces}},
 );
 
 print(json.dumps(result, default=str))

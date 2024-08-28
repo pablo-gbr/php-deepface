@@ -165,7 +165,8 @@ class DeepFace
         Detector $detector_backend = Detector::OPENCV,
         bool $enforce_detection = true,
         bool $align = true,
-        bool $grayscale = false,
+        bool $grayscale = false, // Deprecated
+        string $color_face = 'rgb',
         bool $anti_spoofing = false,
     ): array {
         $img = new SplFileInfo($img_path);
@@ -184,6 +185,7 @@ class DeepFace
                 '{{detector_backend}}' => $detector_backend->value,
                 '{{align}}' => $align ? 'True' : 'False',
                 '{{grayscale}}' => $grayscale ? 'True' : 'False',
+                '{{color_face}}' => $color_face,
             ],
         );
 
@@ -274,6 +276,7 @@ class DeepFace
         bool $align = true,
         Normalization $normalization = Normalization::BASE,
         bool $anti_spoofing = false,
+        int $max_faces = null
     ): array {
         $img = new SplFileInfo($img_path);
 
@@ -291,6 +294,7 @@ class DeepFace
                 '{{detector_backend}}' => $detector_backend->value,
                 '{{align}}' => $align ? 'True' : 'False',
                 '{{normalization}}' => $normalization->value,
+                '{{max_faces}}' => empty($max_faces) ? 'None' : $max_faces,
             ],
         );
 

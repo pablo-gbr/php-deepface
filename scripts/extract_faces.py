@@ -9,6 +9,7 @@ result = DeepFace.extract_faces(
     detector_backend="{{detector_backend}}",
     align={{align}},
     grayscale={{grayscale}},
+    color_face="{{color_face}}"
 );
 
 print(json.dumps(result, default=str))
